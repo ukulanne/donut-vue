@@ -16,6 +16,7 @@ export default {
       tab: "one",
       reportType:  "payments.created.current",
       accountTotals: [],
+      branchTotals: [],
       employees: [],
       dialog: false,
       payRollFlag: false,
@@ -100,12 +101,23 @@ export default {
         .then (response => {
           this.accountTotals = response.data.rows
          
-          console.log ('panda account totals')
+          console.log ('🍩 Account totals')
+        })
+    },
+
+    async getBranchTotals (){
+      console.log (`Get branch totals`)
+      await axios
+        .get (`/api/branchTotals`)
+        .then (response => {
+          this.branchTotals = response.data.rows
+          
+          console.log ('🍩 Branch totals')
         })
     },
     
    async getEmployees (){
-      console.log (`Get employees`)
+      console.log (`🍩 Get employees`)
 
       await axios
         .get (`/api/employees`)

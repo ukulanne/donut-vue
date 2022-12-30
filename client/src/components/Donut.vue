@@ -150,53 +150,74 @@
         </v-window-item>
         
         <v-window-item value="three">
-          <!-- start of three -->
-          <v-row no-gutters>
-            <v-col cols="8">
-              <v-sheet class="pa-2 ma-2">
-                <v-select
-                  label="Please select a Pay Period"
-                  :items="['November 18, 2022', 'December 2, 2022', 'December 16, 2022', 'December 30, 2022']"
-                  ></v-select>
-              </v-sheet>
-            </v-col>
-            
-            <v-col cols="4">
-              <v-sheet class="pa-2 ma-2">
-                <v-btn @click="testMessage">Make Report</v-btn>
-              </v-sheet>
-            </v-col>
-          </v-row>
-         
           
-          <v-table>
-            <thead>
-              <tr>
-                <th class="text-left">
-                  Branch
-                </th>
-                <th class="text-left">
-                  Total of Employees
-                </th>
-                <th class="text-left">
-                  Total Payments
-                </th>
-                <th>
-                  </th>
-              </tr>
-            </thead>
-            <tbody>
-        <!--     <tr
-                v-for="item in desserts"
-        :key="item.name"
+            <div align="right">
+            
+              <v-btn 
+                ripple
+                flat
+                tile 
+                right 
+                color="pink darken-2"
+                class="white--text"
+                @click="onCsvExport(accountTotals, 'accountTotals')"  
+                aria-label="Download CSV"
+                >
+                  <v-icon>mdi-cloud-download</v-icon>
+                  CSV
+                
+              </v-btn>
+          
+
+            
+          
+                <v-btn 
+                  
+                  ripple 
+                  right 
+                  tile 
+                  color="pink darken-2" 
+                  @click="getBranchTotals()" 
+                  aria-label="Load Account Totals"
+                  prepend-icon="mdi-reload"
+                  >Load
+                 
+                </v-btn>
+          </div>
+
+          <!--{{employees}}-->
+           <v-table
+    fixed-header
+    height="300px"
+  >
+    <thead>
+      <tr>
+        <th class="text-left">
+          Branch        </th>
+        <th class="text-left">
+         DATE
+        </th>
+        <th class="text-left">
+          TOTAL
+        </th>
+       <th>
+          </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="item in branchTotals"
+        :key="item.branch"
       >
-        <td>{{ item.name }}</td>
-        <td>{{ item.calories }}</td>
-      </tr>-->
+        <td>{{ item.branch }}</td>
+        <td>{{ item.date }}</td>
+        <td>${{ item.TOTAL }}</td>
+        <td> <v-btn  color="pink darken-2"> More info </v-btn></td>
+      </tr>
     </tbody>
   </v-table>
-          
-          <!--endof three-->
+
+      
         </v-window-item>
         <v-window-item value="four">
            <div align="right">
