@@ -46,8 +46,8 @@ process.on ('uncaughtException',  err => {
 })
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.log (`${chalk.bgRed ('[Rejection]')}`)
- /console.error (reason)
+  console.log (`${chalk.bgRed ('[Rejection]')} ${reason} `)
+ 
   //process.exit ()
 })
 
