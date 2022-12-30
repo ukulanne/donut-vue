@@ -1,0 +1,25 @@
+{
+  "name": "vuetify-project",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mdi/font": "7.1.96",
+    "axios": "^1.2.1",
+    "file-saver": "^2.0.5",
+    "lodash": "^4.17.21",
+    "moment-timezone": "^0.5.40",
+    "roboto-fontface": "*",
+    "vue": "^3.2.45",
+    "vuetify": "^3.0.0",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.0.3",
+    "vite-plugin-vuetify": "^1.0.1"
+  }
+}

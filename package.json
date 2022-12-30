@@ -1,0 +1,58 @@
+{
+
+  "scripts": {
+
+    "postinstall": "(cd client && npm install);",
+
+    "start": "node server.js",
+
+    "test": "jest",
+
+    "build": "cd client && npm run build",
+
+    "clean": "rm -rf node_modules && cd client && npm run clean",
+
+    "clientStartDev": "cd client && npm run dev",
+
+    "serverStartDev": "nodemon start",
+
+    "startDev": "npx concurrently -k \"npm run serverStartDev\" \"npm run clientStartDev\""
+
+  },
+
+  "dependencies": {
+
+    "axios": "^1.2.2",
+
+    "body-parser": "^1.20.1",
+
+    "cli-color": "^2.0.3",
+
+    "colors": "^1.4.0",
+
+    "compression": "^1.7.4",
+
+    "express": "^4.18.2",
+
+    "fast-xml-parser": "^4.0.12",
+
+    "figlet": "^1.5.2",
+
+    "helmet": "^6.0.1",
+
+    "method-node": "^0.3.12",
+
+    "method-override": "^3.0.0",
+
+    "multer": "^1.4.5-lts.1",
+
+    "node-schedule": "^2.1.0",
+
+    "sqlite3": "^5.1.4",
+
+    "uuid": "^9.0.0"
+
+  }
+
+}
+
