@@ -2,7 +2,7 @@
 
   "scripts": {
 
-    "postinstall": "(cd client && npm install);",
+    "postinstall": "(cd client && npm install);(cd db && node ddl.js)",
 
     "start": "node server.js",
 
@@ -40,9 +40,11 @@
 
     "helmet": "^6.0.1",
 
-    "method-node": "^0.3.12",
+    "method-node": "^0.3.13",
 
     "method-override": "^3.0.0",
+
+    "moment-timezone": "^0.5.40",
 
     "multer": "^1.4.5-lts.1",
 
