@@ -4,11 +4,10 @@ const clc     = require ('cli-color')
 const fs      = require ('fs')
 const sqlite3 = require ('sqlite3').verbose ()
 
-//const METHOD_LIMIT_CALL = 600
-//const METHOD_LIMIT_TIME = 60000
+const METHOD_API_CONST = require ('../method/methodApiConstants')
 
-const METHOD_LIMIT_CALL = 600
-const METHOD_LIMIT_TIME = 5000
+const METHOD_LIMIT_CALL = METHOD_API_CONST.METHOD_LIMIT_CALL
+const METHOD_LIMIT_TIME = METHOD_API_CONST.METHOD_LIMIT_TIME
 
 
 const account   = require ('../method/account') 
@@ -96,7 +95,7 @@ exports.makePayments = async (req, res, next) => {
     
     let jsonObj = parser.parse (data)
     //let rows = jsonObj.root.row
-    let rows = jsonObj.root.row.slice (0, 100)
+    let rows = jsonObj.root.row.slice (0, 700)
 
     //console.log (rows.length)
    console.log (rows [0])
@@ -108,7 +107,7 @@ exports.makePayments = async (req, res, next) => {
     let accountsMap =  await account.add (db, payors)
     
    
-    await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
+    await Promise.all ([sleep (METHOD_LIMIT_TIME * 1)])
     console.log (`💰 Number of Dunkin Checking accounts ${accountsMap.size} 💰`) //we cache the accounts to speed things up
     
     let allEmployees = rows.map (({ Employee }) => Employee)
@@ -129,14 +128,14 @@ exports.makePayments = async (req, res, next) => {
 
     //we cache merchants to speed things up
     
-    await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
+    await Promise.all ([sleep (METHOD_LIMIT_TIME * 2)])
 
     console.log (merchantsMap)
     
     let employeesMap = await employee.add (db, employees)
 
                         //await Promise.all ([sleep (60000 * 3)])
-    await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
+    await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
 
     console.log (`😁 Employees ${employeesMap.size} 😁`)
     
