@@ -5,11 +5,10 @@ const sqlite3 = require ('sqlite3').verbose ()
 
 const {sleep} = require ('../lib/helper.js')
 
-//const METHOD_LIMIT_CALL = 600
-//const METHOD_LIMIT_TIME = 60000
+const METHOD_API_CONST = require ('./methodApiConstants')
 
-const METHOD_LIMIT_CALL = 600
-const METHOD_LIMIT_TIME = 5000
+const METHOD_LIMIT_CALL = METHOD_API_CONST.METHOD_LIMIT_CALL
+const METHOD_LIMIT_TIME = METHOD_API_CONST.METHOD_LIMIT_TIME
 
 const {Method, Environments} = require ('method-node')
 

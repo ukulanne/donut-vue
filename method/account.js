@@ -16,12 +16,10 @@ const method = new Method({
 const DUNKIN_CORP = require ('./corporation')
 const DUNKIN_CORP_ID = DUNKIN_CORP.id
 
-//const METHOD_LIMIT_CALL = 600
-//const METHOD_LIMIT_TIME = 60000
+const METHOD_API_CONST = require ('./methodApiConstants')
 
-const METHOD_LIMIT_CALL = 600
-const METHOD_LIMIT_TIME = 5000
-
+const METHOD_LIMIT_CALL = METHOD_API_CONST.METHOD_LIMIT_CALL
+const METHOD_LIMIT_TIME = METHOD_API_CONST.METHOD_LIMIT_TIME
 
 exports.add = async (db, accounts) =>{
   let accountsMap = new Map ()

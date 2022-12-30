@@ -5,11 +5,11 @@ const sqlite3 = require ('sqlite3').verbose ()
 
 const {sleep} = require ('../lib/helper.js')
 
-//const METHOD_LIMIT_CALL = 600
-//const METHOD_LIMIT_TIME = 60000
+const METHOD_API_CONST = require ('./methodApiConstants')
 
-const METHOD_LIMIT_CALL = 600
-const METHOD_LIMIT_TIME = 5000
+const METHOD_LIMIT_CALL = METHOD_API_CONST.METHOD_LIMIT_CALL
+const METHOD_LIMIT_TIME = METHOD_API_CONST.METHOD_LIMIT_TIME
+
 
 const {Method, Environments} = require ('method-node')
 
@@ -43,7 +43,7 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
       let mid = merchantsMap.get (p.Payee.PlaidId)
       let hid = employeesMap.get (p.DunkinId)
       let an  = p.Payee.LoanAccountNumber
-      let amount = p.Amount.replace (/\$/g, '')
+      let amount = parseFloat (p.Amount.replace (/\$/g, '')).toFixed (2)
       let payorId = accountsMap.get (p.PayorId)
       let lid
       
@@ -71,7 +71,7 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
 
                   //lid = `en-${uuidv4 ()}` //dummy for now. this should come from method  API
                   const account = await method.accounts.create ({
-                    holder_id: hid,
+                     holder_id: hid,
                     liability: {
                       mch_id: mid,
                       number: an.toString ()
@@ -87,8 +87,8 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
                             if (err){
                               console.log (err)
                               throw (err)
-                              console.log ('panda')
-                              console.log (data)
+                             // console.log ('panda')
+                              //console.log (data)
                               
                             }
 
@@ -97,34 +97,43 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
                           })
                 }
                 
-                //console.log (`Payment id: ${lid} holder_id ${hid} Account Number: ${an} merchantId${mid}`)
-              //  let pyd = `py-${uuidv4 ()}` //dummy for now. this should come from method  API
-               let payment = await method.payments.create({
-                 amount: amount * 100,
-                 source: payorId,
-                 destination: lid,
-                 description: 'Loan Pmt',
-               })
+               try {
+                 let payment = await method.payments.create ({
+                   amount: Math.round (amount * 100),
+                   source: payorId,
+                   destination: lid,
+                   description: 'Loan Pmt',
+                 })
+                 
+                 db.run (`insert into Payment VALUES ('${payment.id}', '${payorId}', '${lid}', ${amount})`,
+                         (err, data) => {
+                           
+                           if (err){
+                             console.log (err)
+                             throw (err)
+                           }
+                           
+                           console.log (clc.blue ("[SMS] SMS text has been sent"))
+                           
+                           
+                           
+                         })
+                 
+                 
+               }catch (error){
+                 console.log (`payee.js method.payment.create `)
+                 console.log (error)
+               }
                
                 //start of isnert payment
-                //console.log (`insert into Payment VALUES ('${payment.id}', '${payorId}', '${lid}', '${amount}')`)
-                db.run (`insert into Payment VALUES ('${payment.id}', '${payorId}', '${lid}', ${amount})`,
-                          (err, data) => {
-                            
-                            if (err){
-                              console.log (err)
-                              throw (err)
-                            }
+               //console.log (`insert into Payment VALUES ('${payment.id}', '${payorId}', '${lid}', '${amount}')`)
+              // if (payment){
+             
 
-                            console.log (clc.blue ("[SMS] SMS text has been sent"))
-                            
-
-                
-              })
-                //enf of payment insert!!!
+                 //enf of payment insert!!!
               })//db.get
      
-     
+             
       
      
     }//else
