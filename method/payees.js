@@ -1,6 +1,7 @@
 'use strict'
 
 const clc = require ('cli-color')
+const moment  =  require ('moment-timezone')
 const sqlite3 = require ('sqlite3').verbose ()
 
 const {sleep} = require ('../lib/helper.js')
@@ -21,8 +22,8 @@ const method = new Method({
 exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
   let apiLimit = 0
   let el = payees.length
-
-  console.log (payees [0])
+  let timestamp =  moment ().format ('YYYY-MM-DD')
+ // console.log (payees [0])
   
   console.log ("💵Payee.js")
   
@@ -42,6 +43,7 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
       //console.log (p)
       let mid = merchantsMap.get (p.Payee.PlaidId)
       let hid = employeesMap.get (p.DunkinId)
+      let branchId = p.BranchId
       let an  = p.Payee.LoanAccountNumber
       let amount = parseFloat (p.Amount.replace (/\$/g, '')).toFixed (2)
       let payorId = accountsMap.get (p.PayorId)
@@ -57,9 +59,7 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
 
                 if (row){
                   //console.log (clc.blue (`Account with LoanAccountNumber ${an} already in DB`))
-                  
-                  //console.log ('row here') 
-                  //console.log (row)
+                 
                   lid = row.id 
                  
                 }
@@ -69,7 +69,6 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
                   //Insert on method and then insert on our cache DB
                   // Escape strings for SQL using two quotes
 
-                  //lid = `en-${uuidv4 ()}` //dummy for now. this should come from method  API
                   const account = await method.accounts.create ({
                      holder_id: hid,
                     liability: {
@@ -105,7 +104,7 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
                    description: 'Loan Pmt',
                  })
                  
-                 db.run (`insert into Payment VALUES ('${payment.id}', '${payorId}', '${lid}', ${amount})`,
+                 db.run (`insert into Payment VALUES ('${payment.id}', '${payorId}', '${lid}', '${branchId}', ${amount}, '${timestamp}')`,
                          (err, data) => {
                            
                            if (err){
@@ -125,17 +124,8 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
                  console.log (error)
                }
                
-                //start of isnert payment
-               //console.log (`insert into Payment VALUES ('${payment.id}', '${payorId}', '${lid}', '${amount}')`)
-              // if (payment){
-             
-
-                 //enf of payment insert!!!
               })//db.get
-     
-             
-      
-     
+   
     }//else
    
         
