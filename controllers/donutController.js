@@ -19,10 +19,10 @@ exports.getEmployees = async (req, res, next) => {
     if (err){
       console.error (err.message)
     }
-    console.log ('Connected to the Dunkin database.')
+    //console.log ('Connected to the Dunkin database.')
   })
   
-  let query = 'select * from Employee LIMIT 200'
+  let query = 'select * from Employee LIMIT 300'
   
    db.all (query, [], (err, rows)=>{
 
@@ -42,13 +42,13 @@ exports.getAccountTotals = async (req, res, next) => {
 
   const db = new sqlite3.Database ('db/dunkin.db', err => {
     if (err){
-      console.error (err.message)
+   //   console.error (err.message)
     }
     console.log ('Connected to the Dunkin database.')
   })
   
   let query = `select DunkinId, AccountNumber, ABARouting, SUM(Amount) as TOTAL  from Account, Payment 
-                WHERE Account.DunkinId = Payment.source
+                WHERE Account.Aid = Payment.source
                 GROUP BY DunkinId`
   
    db.all (query, [], (err, rows)=>{
@@ -62,7 +62,33 @@ exports.getAccountTotals = async (req, res, next) => {
 
    })
 }
+
+exports.getBranchTotals = async (req, res, next) => {  
+
+  console.log ('🍩 getBranchTotals')
+
+  const db = new sqlite3.Database ('db/dunkin.db', err => {
+    if (err){
+      console.error (err.message)
+    }
+    //console.log ('Connected to the Dunkin database.')
+  })
   
- 
+  let query = `select branch, paymentTS as date, SUM(amount) as TOTAL
+               from Payment group by branch`
+  
+   db.all (query, [], (err, rows)=>{
+
+    if (err){
+      console.log (err)
+      throw err
+    }
+    
+     res.end (JSON.stringify ({rows}))
+
+   })
+}
+  
+
   
 

@@ -95,12 +95,11 @@ exports.makePayments = async (req, res, next) => {
     
     let jsonObj = parser.parse (data)
     //let rows = jsonObj.root.row
-    let rows = jsonObj.root.row.slice (0, 700)
+    let rows = jsonObj.root.row.slice (0, 100)
 
     //console.log (rows.length)
-   console.log (rows [0])
-   
-    
+   //console.log (rows [0])
+  
     let allPayors = rows.map (({Payor}) => Payor)
     let payors = removeDups (allPayors, 'DunkinId')
   
@@ -116,6 +115,7 @@ exports.makePayments = async (req, res, next) => {
 
     let allPlaids = rows.map (({Payee}) => Payee)
     let allPayees = rows.map (i => {return {DunkinId: i.Employee.DunkinId,
+                                            BranchId: i.Employee.DunkinBranch,
                                             Payee: i.Payee,
                                             PayorId: i.Payor.DunkinId,
                                             Amount: i.Amount}})
@@ -135,14 +135,16 @@ exports.makePayments = async (req, res, next) => {
     let employeesMap = await employee.add (db, employees)
 
                         //await Promise.all ([sleep (60000 * 3)])
-    await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
+   // await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
+    await Promise.all ([sleep (METHOD_LIMIT_TIME)])
 
     console.log (`😁 Employees ${employeesMap.size} 😁`)
     
     await payees.add (db, allPayees, merchantsMap, employeesMap, accountsMap)
   
-    await Promise.all ([sleep (60000 * 9)])
-  //  await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
+   // await Promise.all ([sleep (60000 * 9)])
+    //  await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
+    //  
     console.log (`Payment Rows: ${rows.length}`)
     console.log (`Unique Employees: ${el}`)
     console.log (`Unique Payors: ${payors.length}`) 
