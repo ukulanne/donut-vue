@@ -20,6 +20,7 @@ router.get (["/", "/login", "/logout"], (req, res) => { res.sendFile ("index.htm
 
 router.get ('/api/chocoDonut', donutController.getChocoDonut)
 router.get ('/api/accountTotals', donutController.getAccountTotals)
+router.get ('/api/branchTotals', donutController.getBranchTotals)
 router.get ('/api/employees', donutController.getEmployees)
 
 router.get ('/api/methodReport', methodController.getMethodReport)
