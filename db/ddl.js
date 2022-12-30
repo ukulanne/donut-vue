@@ -73,7 +73,9 @@ db.run (`CREATE TABLE IF NOT EXISTS Payment(
          id TEXT PRIMARY KEY, 
          source TEXT,
          destination TEXT,
-         amount NUMBER)`,
+         branch TEXT,
+         amount NUMBER,
+         paymentTS TEXT)`,
         (err) => {
           if (err) {
             console.log (err)
