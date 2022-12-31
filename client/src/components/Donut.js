@@ -2,7 +2,8 @@ import axios from 'axios'
 import fileSaver from 'file-saver'
 import { cloneDeep } from 'lodash'
 import moment from 'moment-timezone'
-import {onMounted} from 'vue'
+
+//import {onMounted} from 'vue'
 
 export default {
   name: 'Donut',
@@ -13,11 +14,15 @@ export default {
     return {
       panda: 'Anne Summers',
       file: '',
+      periods: ['California', 'Colorado'],
+      selectedPeriods: [],
       tab: "one",
       reportType:  "payments.created.current",
       accountTotals: [],
       branchTotals: [],
+      branches: [],
       employees: [],
+      cycles: [],
       dialog: false,
       payRollFlag: false,
       payRollStats: "pn",
@@ -61,7 +66,7 @@ export default {
             console.log (this.payRollStats)
             
             if (confirm (`Would you like to proceed?:\nPayment rows: ${data.paymentRows}\nTotal Employees ${data.employees}\nPayor Accounts: ${data.payors}\nMerchants: ${data.merchants}`)){
-              console.log ("ppanda yes start the fun!!")
+             
               this.makePayments ()
             }
             
@@ -77,19 +82,19 @@ export default {
          axios
            .post (`/api/payments`)
            .then(response => {
-             console.log ('panda payments')
-             console.log (response.data)
+           
+           //  console.log (response.data)
              alert ('The payment batch job has been submitted succesfully. You will receove an email when all payments are processed in a few hours.')
            })
        },
     
     testMessage (){
-      console.log (`The best panda  is ${this.panda}`)
+      console.log (`🐼 The best panda  is ${this.panda}`)
 
       axios
         .get (`/api/chocoDonut`)
         .then(response => {
-          console.log ('panda')
+          console.log ('🍩 panda')
           console.log (response)
         })
     },
@@ -97,11 +102,20 @@ export default {
     async getAccountTotals (){
       console.log (`Get account totals`)
       await axios
-        .get (`/api/accountTotals`)
+        .get (`/api/accountTotals`, { params: {selected: this.selectedPeriods} })   
         .then (response => {
           this.accountTotals = response.data.rows
          
           console.log ('🍩 Account totals')
+        })
+    },
+
+    async getPayPeriods (){
+      await axios
+        .get (`/api/payPeriods`)
+        .then (response => {
+          this.periods = response.data.rows.map (x => x.paymentTS)
+          console.log ('🍩 Pay Periods')
         })
     },
 
@@ -169,10 +183,16 @@ export default {
     }
 
   },
-  
+
+  mounted(){
+    console.log ('🐼❤️🍩☕')
+    this.getPayPeriods ()
+  },
+  /*
   setup (){
     onMounted (() => {
       console.log ('panda onMounted()')
     })
   },
+  */
 }

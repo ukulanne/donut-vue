@@ -1,3 +1,4 @@
+<!-- Time-stamp: <2022-12-31 00:30:11 anne> -->
 <script src="./Donut.js"/>
 <template>
   
@@ -8,11 +9,12 @@
       bg-color="orange"
       
       >
-      <v-tab class="text-white" value="one">Submit Payment</v-tab>
-      <v-tab class="text-white" value="two">Report by Account</v-tab>
-      <v-tab class="text-white" value="three">Report by Branch</v-tab>
+      <v-tab class="text-white" value="one" >
+        Submit Payment</v-tab>
+      <v-tab class="text-white" value="two" @click="getAccountTotals">Report by Account</v-tab>
+      <v-tab class="text-white" value="three" @click="getBranchTotals">Report by Branch</v-tab>
       <v-tab class="text-white" value="four">Method Reports</v-tab>
-      <v-tab class="text-white" value="five">Employee Info</v-tab>
+      <v-tab class="text-white" value="five" @click="getEmployees">Employee Info</v-tab>
     </v-tabs>
     
     <v-card-text>
@@ -72,9 +74,31 @@
         </v-window-item>
         
         <v-window-item value="two">
+          <v-row no-gutters>
+            <v-col cols="12"   sm="4">
+              <v-sheet class="ma-2 pa-2">
+               
+              </v-sheet>
+            </v-col>
 
-            <div align="right">
+              <v-col cols="12"   sm="4">
+      
+              <v-sheet class="ma-2 pa-2">
+                <v-select
+                clearable
+                  label="Select one or more pay periods"
+                  v-model="selectedPeriods"
+                :items="periods"
+                multiple
+                ></v-select>
+              </v-sheet>
+            </v-col>
             
+        
+           <v-col cols="12"   sm="4">
+              
+            <div align="right">
+              
               <v-btn 
                 ripple
                 flat
@@ -89,10 +113,7 @@
                   CSV
                 
               </v-btn>
-          
-
-            
-          
+              
                 <v-btn 
                   
                   ripple 
@@ -101,12 +122,13 @@
                   color="pink darken-2" 
                   @click="getAccountTotals()" 
                   aria-label="Load Account Totals"
-                  prepend-icon="mdi-reload"
+                  prepend-icon="mdi-database-search"
                   >Load
                  
                 </v-btn>
-          </div>
-
+            </div>
+           </v-col>
+          </v-row>
           <!--{{employees}}-->
            <v-table
     fixed-header
@@ -160,7 +182,7 @@
                 right 
                 color="pink darken-2"
                 class="white--text"
-                @click="onCsvExport(accountTotals, 'accountTotals')"  
+                @click="onCsvExport(branchTotals, 'branchTotals')"  
                 aria-label="Download CSV"
                 >
                   <v-icon>mdi-cloud-download</v-icon>
@@ -211,7 +233,7 @@
       >
         <td>{{ item.branch }}</td>
         <td>{{ item.date }}</td>
-        <td>${{ item.TOTAL }}</td>
+        <td>${{ item.TOTAL.toFixed(2) }}</td>
         <td> <v-btn  color="pink darken-2"> More info </v-btn></td>
       </tr>
     </tbody>
@@ -236,24 +258,9 @@
                   CSV
                 
               </v-btn>
-              <!--
-              <v-btn 
-                  
-                  ripple 
-                  right 
-                  tile 
-                  color="pink darken-2" 
-                  @click="" 
-                  aria-label="Load Employees"
-                  prepend-icon="mdi-reload"
-                  >Load
-                 
-              </v-btn>
-              -->
+             
           </div>
           
-          
-         <!-- {{reportType}} -->
           <br/>
           <v-radio-group  v-model="reportType" inline>
             <v-radio label="Current Created Reports" value="payments.created.current"  color="pink darken-2"></v-radio>
@@ -300,7 +307,7 @@
                 </v-btn>
           </div>
 
-          <!--{{employees}}-->
+       
            <v-table
     fixed-header
     height="300px"
@@ -320,6 +327,9 @@
           Branch
         </th>
         <th>
+          Total Payments
+          </th>
+        <th>
           </th>
       </tr>
     </thead>
@@ -332,6 +342,7 @@
         <td>{{ item.DunkinId }}</td>
         <td>{{ item.DOB }}</td>
         <td>{{ item.DunkinBranch }}</td>
+        <td>${{ item.TOTAL }}</td>
         <td> <v-btn  color="pink darken-2"> More info </v-btn></td>
       </tr>
     </tbody>
