@@ -1,4 +1,4 @@
-<!-- Time-stamp: <2022-12-31 00:30:11 anne> -->
+<!-- Time-stamp: <2022-12-31 16:40:08 anne> -->
 <script src="./Donut.js"/>
 <template>
   
@@ -22,16 +22,16 @@
         <v-window-item value="one">
          
           <v-form  enctype="multipart/form-data">
-           <v-row no-gutters>
-             <v-col cols="8">
+            <v-row no-gutters>
+              <v-col cols="8">
                 <v-file-input
-            chips show-size
-            prepend-icon="mdi-xml"
-            label="XML File"
-            ref="file"
-            @change="onSelect"
+                  chips show-size
+                  prepend-icon="mdi-xml"
+                  label="XML File"
+                  ref="file"
+                  @change="onSelect"
                   ></v-file-input>
-             </v-col>
+              </v-col>
                
              <v-col cols="4">
                  <v-sheet class="pa-2 ma-2">
@@ -172,9 +172,31 @@
         </v-window-item>
         
         <v-window-item value="three">
-          
-            <div align="right">
+             <v-row no-gutters>
+            <v-col cols="12"   sm="4">
+              <v-sheet class="ma-2 pa-2">
+               
+              </v-sheet>
+            </v-col>
+
+              <v-col cols="12"   sm="4">
+      
+              <v-sheet class="ma-2 pa-2">
+                <v-select
+                clearable
+                  label="Select one or more pay periods"
+                  v-model="selectedPeriods"
+                :items="periods"
+                multiple
+                ></v-select>
+              </v-sheet>
+            </v-col>
             
+        
+           <v-col cols="12"   sm="4">
+              
+            <div align="right">
+              
               <v-btn 
                 ripple
                 flat
@@ -189,10 +211,7 @@
                   CSV
                 
               </v-btn>
-          
-
-            
-          
+              
                 <v-btn 
                   
                   ripple 
@@ -201,11 +220,14 @@
                   color="pink darken-2" 
                   @click="getBranchTotals()" 
                   aria-label="Load Account Totals"
-                  prepend-icon="mdi-reload"
+                  prepend-icon="mdi-database-search"
                   >Load
                  
                 </v-btn>
-          </div>
+            </div>
+           </v-col>
+          </v-row>
+           
 
           <!--{{employees}}-->
            <v-table
@@ -273,8 +295,31 @@
          Please choose one of the following reports. A CSV download should start after a few moments
         </v-window-item>
         <v-window-item value="five">
-          <div align="right">
+           <v-row no-gutters>
+            <v-col cols="12"   sm="4">
+              <v-sheet class="ma-2 pa-2">
+               
+              </v-sheet>
+            </v-col>
+
+              <v-col cols="12"   sm="4">
+      
+              <v-sheet class="ma-2 pa-2">
+                <v-select
+                clearable
+                  label="Select one or more pay periods"
+                  v-model="selectedPeriods"
+                :items="periods"
+                multiple
+                ></v-select>
+              </v-sheet>
+            </v-col>
             
+        
+           <v-col cols="12"   sm="4">
+              
+            <div align="right">
+              
               <v-btn 
                 ripple
                 flat
@@ -289,23 +334,23 @@
                   CSV
                 
               </v-btn>
-          
-
-          
-          
+              
                 <v-btn 
-                 
+                  
                   ripple 
                   right 
                   tile 
                   color="pink darken-2" 
                   @click="getEmployees()" 
-                  aria-label="Load Employees"
-                  prepend-icon="mdi-reload"
+                  aria-label="Load Account Totals"
+                  prepend-icon="mdi-database-search"
                   >Load
                  
                 </v-btn>
-          </div>
+            </div>
+           </v-col>
+          </v-row>
+          
 
        
            <v-table

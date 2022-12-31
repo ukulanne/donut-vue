@@ -14,7 +14,7 @@ export default {
     return {
       panda: 'Anne Summers',
       file: '',
-      periods: ['California', 'Colorado'],
+      periods: [],
       selectedPeriods: [],
       tab: "one",
       reportType:  "payments.created.current",
@@ -41,7 +41,7 @@ export default {
 
     onSelect (){
       let file = this.$refs.file.files [0]
-      this.file = file //"dunkin.xml"
+      this.file = file 
 
     },
 
@@ -122,7 +122,7 @@ export default {
     async getBranchTotals (){
       console.log (`Get branch totals`)
       await axios
-        .get (`/api/branchTotals`)
+        .get (`/api/branchTotals`, { params: {selected: this.selectedPeriods} })
         .then (response => {
           this.branchTotals = response.data.rows
           
@@ -134,7 +134,7 @@ export default {
       console.log (`🍩 Get employees`)
 
       await axios
-        .get (`/api/employees`)
+       .get (`/api/employees`, { params: {selected: this.selectedPeriods} })
         .then (response => {
           //console.log (response.data.rows)
           this.employees = response.data.rows

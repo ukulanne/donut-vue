@@ -1,6 +1,6 @@
 'use strict'
 
-/* Time-stamp: <2022-12-31 00:29:10 anne> */
+/* Time-stamp: <2022-12-31 16:28:44 anne> */
 
 const sqlite3 = require ('sqlite3').verbose ()
 
@@ -25,11 +25,14 @@ exports.getEmployees = async (req, res, next) => {
     }
     //console.log ('Connected to the Dunkin database.')
   })
+
+  let selected = req.query.selected
+  let queryTail =  selected ? `AND paymentTS in (${stringJoin (selected)})` : ''
   
   let query = `select FirstName, LastName, DunkinId, DOB, DunkinBranch, SUM(AMOUNT) as TOTAL 
                from Employee, Payment, studentloan 
-               where employee.eid = studentloan.holderid and studentloan.id= payment.destination
-               group by dunkinid limit 300`
+               where employee.eid = studentloan.holderid and studentloan.id = payment.destination `
+               + queryTail + ` group by dunkinid limit 300`
   
    db.all (query, [], (err, rows)=>{
 
@@ -46,7 +49,7 @@ exports.getEmployees = async (req, res, next) => {
 exports.getAccountTotals = async (req, res, next) => {  
 
   console.log ('🍩 getAccountTotals')
-  console.log (req.query)
+  
   const db = new sqlite3.Database ('db/dunkin.db', err => {
     if (err){
       console.error (err.message)
@@ -75,16 +78,20 @@ exports.getAccountTotals = async (req, res, next) => {
 exports.getBranchTotals = async (req, res, next) => {  
 
   console.log ('🍩 getBranchTotals')
-
+  
   const db = new sqlite3.Database ('db/dunkin.db', err => {
     if (err){
       console.error (err.message)
     }
     //console.log ('Connected to the Dunkin database.')
   })
+
+  let selected = req.query.selected
+  let queryTail =  selected ? `WHERE paymentTS in (${stringJoin (selected)})` : ''
+  
   
   let query = `select branch, paymentTS as date, SUM(amount) as TOTAL
-               from Payment group by branch`
+               from Payment ` + queryTail + `group by branch`
   
    db.all (query, [], (err, rows)=>{
 
