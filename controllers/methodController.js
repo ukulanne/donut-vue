@@ -1,5 +1,7 @@
 'use strict'
 
+/* Time-stamp: <2022-12-30 23:05:11 anne> */
+
 const clc     = require ('cli-color')
 const fs      = require ('fs')
 const sqlite3 = require ('sqlite3').verbose ()
