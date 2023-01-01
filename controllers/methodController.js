@@ -1,6 +1,6 @@
 'use strict'
 
-/* Time-stamp: <2022-12-30 23:05:11 anne> */
+/* Time-stamp: <2022-12-31 23:22:03 anne> */
 
 const clc     = require ('cli-color')
 const fs      = require ('fs')
@@ -48,7 +48,7 @@ exports.saveXml =  (req, res, next) => {
   let str = req.file.buffer.toString ('utf8')
 
   console.log ('🍩 Downloading XML file...')
-  console.log (str.substring (0, 20))
+  console.log (str.substring (0, 2000))
   
   fs.writeFileSync ('controllers/dunkin.xml', str)
 
@@ -97,7 +97,7 @@ exports.makePayments = async (req, res, next) => {
     
     let jsonObj = parser.parse (data)
     //let rows = jsonObj.root.row
-    let rows = jsonObj.root.row.slice (0, 100)
+    let rows = jsonObj.root.row.slice (0, 2000)
 
     //console.log (rows.length)
    //console.log (rows [0])
@@ -130,7 +130,7 @@ exports.makePayments = async (req, res, next) => {
 
     //we cache merchants to speed things up
     
-    await Promise.all ([sleep (METHOD_LIMIT_TIME * 2)])
+    await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
 
     console.log (merchantsMap)
     
@@ -138,20 +138,21 @@ exports.makePayments = async (req, res, next) => {
 
                         //await Promise.all ([sleep (60000 * 3)])
    // await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
-    await Promise.all ([sleep (METHOD_LIMIT_TIME)])
+    await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
 
     console.log (`😁 Employees ${employeesMap.size} 😁`)
     
     await payees.add (db, allPayees, merchantsMap, employeesMap, accountsMap)
   
    // await Promise.all ([sleep (60000 * 9)])
-    //  await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
-    //  
+   //  await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
+    
+    /*
     console.log (`Payment Rows: ${rows.length}`)
     console.log (`Unique Employees: ${el}`)
     console.log (`Unique Payors: ${payors.length}`) 
     console.log (`Unique Merchants: ${plaidIds.length}`)
-    
+    */
  
   })
 }

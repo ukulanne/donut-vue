@@ -1,4 +1,4 @@
-<!-- Time-stamp: <2022-12-31 16:40:08 anne> -->
+<!-- Time-stamp: <2022-12-31 23:44:17 anne> -->
 <script src="./Donut.js"/>
 <template>
   
@@ -26,8 +26,8 @@
               <v-col cols="8">
                 <v-file-input
                   chips show-size
-                  prepend-icon="mdi-xml"
-                  label="XML File"
+                  prepend-icon="mdi-file"
+                  label="Please upload an XML pay cicle file"
                   ref="file"
                   @change="onSelect"
                   ></v-file-input>
@@ -36,8 +36,9 @@
              <v-col cols="4">
                  <v-sheet class="pa-2 ma-2">
                    <v-btn  :disabled="dialog" color="pink darken-2"
+                           prepend-icon="mdi-upload"
                            :loading="dialog" @click="onSubmit()">
-                     Submit
+                     Upload
                    </v-btn>
                  </v-sheet>
            </v-col>
@@ -387,7 +388,7 @@
         <td>{{ item.DunkinId }}</td>
         <td>{{ item.DOB }}</td>
         <td>{{ item.DunkinBranch }}</td>
-        <td>${{ item.TOTAL }}</td>
+        <td>${{ item.TOTAL.toFixed(2) }}</td>
         <td> <v-btn  color="pink darken-2"> More info </v-btn></td>
       </tr>
     </tbody>
