@@ -31,6 +31,10 @@ Donut-vue uses the following:
 - and another to clear all the contents of the DB (table-delete-rows.js)
 - You can always use your favorite database query tool that supports SQLite. I have used [RazorSQL](https://razorsql.com/) for years
 
+# API Documentation
+
+- You can check the app API documentation at `http://localhost:8080/api-docs/`
+
 # Usage
 
 ## Upload XML File
