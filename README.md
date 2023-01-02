@@ -28,7 +28,19 @@ Donut-vue uses the following:
 - and another to clear all the contents of the DB (table-delete-rows.js)
 - You can always use your favorite database query tool that supports SQLite. I have used [RazorSQL](https://razorsql.com/) for years
 
+# Usage
 
+## Upload XML File
+<img width="1055" alt="image" src="https://user-images.githubusercontent.com/28586666/210194173-dba30a64-6741-44cd-b7ff-9bfa57e5a3e6.png">
+
+
+## Report by Account
+
+## Report by Branch
+
+## Methods Report
+
+## Employee Info
 # Tools I use
 - [git-klone.scm](https://github.com/ukulanne/git-klone-setup)
 - [Emacs](https://www.gnu.org/software/emacs/)
