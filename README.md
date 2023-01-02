@@ -31,6 +31,10 @@ Donut-vue uses the following:
 - and another to clear all the contents of the DB (table-delete-rows.js)
 - You can always use your favorite database query tool that supports SQLite. I have used [RazorSQL](https://razorsql.com/) for years
 
+# API Documentation
+
+- You can check the app API documentation at [localhost:8080/api-fovd/](http://localhost:8080/api-docs/)
+
 # Usage
 
 ## Upload XML File
@@ -70,6 +74,10 @@ We need to first use a data-table that supports pagination to handle the 9k+ num
 ## User Options
 
 <img width="182" alt="image" src="https://user-images.githubusercontent.com/28586666/210196310-5211b4ea-7630-4eb8-8155-07d23c1e1c47.png">
+
+## API Docs
+
+![image](https://user-images.githubusercontent.com/28586666/210281378-d08e8158-4010-465a-9430-17eb3fa82a94.png)
 
 
 # Tools I use
