@@ -33,7 +33,7 @@ Donut-vue uses the following:
 
 # API Documentation
 
-- You can check the app API documentation at `http://localhost:8080/api-docs/`
+- You can check the app API documentation at [localhost:8080/api-fovd/](http://localhost:8080/api-docs/)
 
 # Usage
 
@@ -74,6 +74,10 @@ We need to first use a data-table that supports pagination to handle the 9k+ num
 ## User Options
 
 <img width="182" alt="image" src="https://user-images.githubusercontent.com/28586666/210196310-5211b4ea-7630-4eb8-8155-07d23c1e1c47.png">
+
+## API Docs
+
+![image](https://user-images.githubusercontent.com/28586666/210281378-d08e8158-4010-465a-9430-17eb3fa82a94.png)
 
 
 # Tools I use
