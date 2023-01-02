@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0", 
-    "title": "🍩 Donkin Donuts 🍩",
-    "description": "Donkin Donuts Student Loan App  API",
+    "title": "🍩 Dunkin' Donuts 🍩",
+    "description": "Dunkin' Donuts Student Loan App  API",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
