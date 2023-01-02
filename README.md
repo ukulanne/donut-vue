@@ -35,12 +35,23 @@ Donut-vue uses the following:
 
 
 ## Report by Account
+<img width="1065" alt="image" src="https://user-images.githubusercontent.com/28586666/210195036-33c3d6b5-943f-49aa-807c-15869d07d547.png">
+
+
+<img width="1063" alt="image" src="https://user-images.githubusercontent.com/28586666/210195053-1ee1ad50-44eb-4a08-b9d4-d19c4e1c991b.png">
 
 ## Report by Branch
+<img width="1069" alt="image" src="https://user-images.githubusercontent.com/28586666/210195070-4517a41f-45ce-41e4-b0cd-8520905d4046.png">
+
 
 ## Methods Report
+<img width="1070" alt="image" src="https://user-images.githubusercontent.com/28586666/210195094-05b8f835-2e4c-456e-9835-97ddbcfc84ad.png">
+
 
 ## Employee Info
+<img width="1068" alt="image" src="https://user-images.githubusercontent.com/28586666/210195116-41c8f93c-ee56-4225-8870-bb9fe62da7c9.png">
+
+
 # Tools I use
 - [git-klone.scm](https://github.com/ukulanne/git-klone-setup)
 - [Emacs](https://www.gnu.org/software/emacs/)
