@@ -1,6 +1,6 @@
 'use strict'
 
-/* Time-stamp: <2022-12-30 23:05:23 anne> */
+/* Time-stamp: <2023-01-02 09:55:39 anne> */
 
 const clc = require ('cli-color')
 const moment  =  require ('moment-timezone')
@@ -25,12 +25,10 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
   let apiLimit = 0
   let el = payees.length
   let timestamp =  moment ().format ('YYYY-MM-DD')
- // console.log (payees [0])
   
   console.log ("💵Payee.js")
   
   for (let i = 0; i < el; i++){
-    let panda='panda'
     if (apiLimit >= METHOD_LIMIT_CALL){
       console.log (clc.red (`[SLEEP] 💤 We have reached the API limit so we are waiting i=${i}...😴`))
       await Promise.all ([sleep (METHOD_LIMIT_TIME)])
@@ -42,7 +40,6 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
     else {
       //console.log ("[DB] Query and insert account if needed")
       let p = payees [i]
-      //console.log (p)
       let mid = merchantsMap.get (p.Payee.PlaidId)
       let hid = employeesMap.get (p.DunkinId)
       let branchId = p.BranchId
@@ -88,9 +85,6 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
                             if (err){
                               console.log (err)
                               throw (err)
-                             // console.log ('panda')
-                              //console.log (data)
-                              
                             }
 
                             //console.log (clc.green (`Row inserted with LoanAccountNumber ${an}`))
@@ -133,5 +127,8 @@ exports.add = async (db, payees, merchantsMap, employeesMap, accountsMap) =>{
         
     apiLimit +=  2
   }
+
+  console.log ('🍩 Payments done 🍩')
+  
   return 
 }

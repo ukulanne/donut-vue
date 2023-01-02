@@ -1,3 +1,7 @@
+ 'use strict'
+
+/* Time-stamp: <2023-01-02 15:40:19 anne> */
+
 const bodyParser     = require ('body-parser')
 const chalk          = require  ('colors')
 const compression    = require ('compression')
@@ -5,8 +9,10 @@ const express        = require ('express')
 const figlet         = require ('figlet')
 const helmet         = require ('helmet')
 const methodOverride = require ('method-override')
+const swaggerUi      = require ('swagger-ui-express')
 
 const router         = require ('./routes/index')
+const swaggerDoc     = require ('./swagger.json')
 
 const app = express ()
 const HOST = 'localhost'
@@ -55,6 +61,8 @@ new Promise((resolve, reject) => {
   reject('error')
 }).catch((error) => {})
 
+
+app.use ('/api-docs', swaggerUi.serve, swaggerUi.setup (swaggerDoc))
 
 const server = app.listen (PORT, () => {
   figlet ('Dunkin\' Donuts', (err, data) => {

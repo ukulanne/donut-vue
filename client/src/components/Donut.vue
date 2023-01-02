@@ -1,4 +1,4 @@
-<!-- Time-stamp: <2022-12-31 23:44:17 anne> -->
+<!-- Time-stamp: <2023-01-02 10:00:11 anne> -->
 <script src="./Donut.js"/>
 <template>
   
@@ -64,7 +64,7 @@
         </v-card-text>
       </v-card>
     </v-dialog>
-          <div v-if="payRollFlag">
+          <div v-if="false && payRollFlag">
             Payment Rows: {{payRollStats.paymentRows}}<br/>
             Unique Employees: {{payRollStats.employees}}<br/>
             Unique Payors: {{payRollStats.payors}}<br/>
