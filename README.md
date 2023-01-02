@@ -27,3 +27,10 @@ Donut-vue uses the following:
 - The db directory contain one script to check the count of the tables (table-select-all.js) 
 - and another to clear all the contents of the DB (table-delete-rows.js)
 - You can always use your favorite database query tool that supports SQLite. I have used [RazorSQL](https://razorsql.com/) for years
+
+
+# Tools I use
+- [git-klone.scm](https://github.com/ukulanne/git-klone-setup)
+- [Emacs](https://www.gnu.org/software/emacs/)
+- [Fedora Linux](https://getfedora.org/)
+- [RazorSQL](https://razorsql.com/)
