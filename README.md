@@ -12,7 +12,7 @@ Donut-vue uses the following:
 ## Instructions
 
 - Get a free method dev account https://dashboard.methodfi.com/login
-- Clone the donut-vue repo into your environment `git clonegit@github.com:ukulanne/donut-vue.git`
+- Clone the donut-vue repo into your environment `git clone git@github.com:ukulanne/donut-vue.git`
 - Run `npm install` inside the donut-vue directory
 - Set up the METHOD_KEY_API en var on your .bash_profile `export METHOD_API_KEY=<KEY>`
 - Start the application with `npm run startDev`
