@@ -20,9 +20,10 @@ Donut-vue uses the following:
 
 ## Database
 
--Donut-vue uses SQLite. 
+- Donut-vue uses SQLite. 
 - The database is created the first time `npm install` is run and is stored on the `db` directory `db/dunkin.db` 
 - The script that is used to create the DB is db/ddl.js
 - You can check out the queries that the app uses inside db/dunkin.sql
 - The db directory contain one script to check the count of the tables (table-select-all.js) 
 - and another to clear all the contents of the DB (table-delete-rows.js)
+- You can always use your favorite database query tool that supports SQLite. I have used [RazorSQL](https://razorsql.com/) for years
