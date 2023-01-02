@@ -1,6 +1,6 @@
 'use strict'
 
-/* Time-stamp: <2023-01-01 20:45:23 anne> */
+/* Time-stamp: <2023-01-02 11:35:41 anne> */
 
 const clc     = require ('cli-color')
 const fs      = require ('fs')
@@ -18,7 +18,7 @@ const merchants = require ('../method/merchants')
 const payees    = require ('../method/payees.js') 
 
 
-const {removeDups, sleep} = require ('../lib/helper.js')
+const {removeDups, sleep, timer} = require ('../lib/helper.js')
 
 const {XMLParser} = require ('fast-xml-parser')
 const options = { ignoreAttributes : false}
@@ -95,8 +95,8 @@ exports.makePayments = async (req, res, next) => {
     console.log ("🍩   Parsing XML...")
     
     let jsonObj = parser.parse (data)
-    let rows = jsonObj.root.row
-    //let rows = jsonObj.root.row.slice (0, 5000)
+    //let rows = jsonObj.root.row
+    let rows = jsonObj.root.row.slice (0, 1300)
 
     //console.log (rows.length)
    //console.log (rows [0])
@@ -129,15 +129,15 @@ exports.makePayments = async (req, res, next) => {
 
     //we cache merchants to speed things up
     
-    await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
+    await Promise.all ([sleep (timer (plaidIds.length,  METHOD_API_CONST))])
 
     console.log (merchantsMap)
     
     let employeesMap = await employee.add (db, employees)
 
-                        //await Promise.all ([sleep (60000 * 3)])
-   // await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
-    await Promise.all ([sleep (METHOD_LIMIT_TIME * 130)])
+    //await Promise.all ([sleep (METHOD_LIMIT_TIME * 30)])
+    //await Promise.all ([sleep (METHOD_LIMIT_TIME * 5)])
+    await Promise.all ([sleep (timer (employees.length,  METHOD_API_CONST))])
 
     console.log (`😁 Employees ${employeesMap.size} 😁`)
     

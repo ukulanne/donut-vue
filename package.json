@@ -52,6 +52,8 @@
 
     "sqlite3": "^5.1.4",
 
+    "swagger-ui-express": "^4.6.0",
+
     "uuid": "^9.0.0"
 
   },
