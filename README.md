@@ -1,6 +1,6 @@
 # 🍩 Donut-vue 🍩 
 
-Donut-vue is a sample web app tha ilustrates how to use the [METHOD API](https://docs.methodfi.com/api) to simulate apayout dashboard for student loan disbursements to be used at 🍩 Dunkin' Donuts 🍩.
+Donut-vue is a sample web app tha ilustrates how to use the [METHOD API](https://docs.methodfi.com/api) to simulate a payout dashboard for student loan disbursements to be used at 🍩 Dunkin' Donuts 🍩.
 
 <img width="1063" alt="image" src="https://user-images.githubusercontent.com/28586666/210196354-26b861fb-98e0-4576-942a-af03f6fc4ecf.png">
 
