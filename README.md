@@ -60,8 +60,13 @@ Download Method generated reports on CSV format
 
 
 ## Employee Info
-SHows a list of employees and how much money has been paid to their Student Loans.
+Shows a list of employees and how much money has been paid to their Student Loans. Currently the query has a limit of 300. 
+We need to first use a data-table that supports pagination to handle the 9k+ number of employees.
 <img width="1068" alt="image" src="https://user-images.githubusercontent.com/28586666/210195116-41c8f93c-ee56-4225-8870-bb9fe62da7c9.png">
+
+## User Options
+
+<img width="182" alt="image" src="https://user-images.githubusercontent.com/28586666/210196310-5211b4ea-7630-4eb8-8155-07d23c1e1c47.png">
 
 
 # Tools I use
