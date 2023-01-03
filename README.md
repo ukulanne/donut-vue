@@ -20,6 +20,7 @@ Donut-vue uses the following:
 - Set up the METHOD_KEY_API en var on your .bash_profile `export METHOD_API_KEY=<KEY>`
 - Start the application with `npm run startDev`
 - Go to http://localhost:8080/ to try the app!
+- Running the whole process takes a long time so you might want to switch the comment code on https://github.com/ukulanne/donut-vue/blob/ae294a07cc5faca450dfe7d0a81526ba5640d04f/controllers/methodController.js#L98-L99 with a smaller value to see the whole run.
 
 ## Database
 
