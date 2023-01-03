@@ -36,7 +36,7 @@ Donut-vue uses the following:
 
 # API Documentation
 
-- You can check the app API documentation at [localhost:8080/api-fovd/](http://localhost:8080/api-docs/)
+- You can check the app API documentation at [localhost:8080/api-docs/](http://localhost:8080/api-docs/)
 
 # Usage
 
