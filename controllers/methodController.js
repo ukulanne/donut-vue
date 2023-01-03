@@ -1,6 +1,6 @@
 'use strict'
 
-/* Time-stamp: <2023-01-02 21:41:44 anne> */
+/* Time-stamp: <2023-01-03 10:27:06 anne> */
 
 const clc     = require ('cli-color')
 const fs      = require ('fs')
@@ -95,8 +95,8 @@ exports.makePayments = async (req, res, next) => {
     console.log ("🍩   Parsing XML...")
     
     let jsonObj = parser.parse (data)
-    //let rows = jsonObj.root.row
-    let rows = jsonObj.root.row.slice (0, 300)
+    let rows = jsonObj.root.row
+    //let rows = jsonObj.root.row.slice (0, 300)
 
     //console.log (rows.length)
    //console.log (rows [0])
