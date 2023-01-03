@@ -1,6 +1,6 @@
  'use strict'
 
-/* Time-stamp: <2023-01-02 15:40:19 anne> */
+/* Time-stamp: <2023-01-02 21:06:42 anne> */
 
 const bodyParser     = require ('body-parser')
 const chalk          = require  ('colors')
@@ -46,15 +46,10 @@ process.on ('SIGINT', () => {
 
 process.on ('uncaughtException',  err => {
   console.log (`${chalk.bgRed ('[EXCEPTION]')}`)
- 
-  // console.error (err)
-  // process.exit ()
 })
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.log (`${chalk.bgRed ('[Rejection]')} ${reason} `)
- 
-  //process.exit ()
+  //console.log (`${chalk.bgRed ('[Rejection]')} ${reason} `)
 })
 
 new Promise((resolve, reject) => {
@@ -84,3 +79,14 @@ const server = app.listen (PORT, () => {
 
 server.timeout = 0
 server.keepAliveTimeout = 0
+  
+//server.keepAliveTimeout = (60 * 1000) + 1000;
+//server.headersTimeout = (60 * 1000) + 2000;
+
+/*
+console.log (`Server timeout ${server.timeout}`)
+console.log (`Server timeout ${server.headersTimeout}`)
+console.log (`Server keep alive timeout ${server.keepAliveTimeout}`)
+*/
+
+

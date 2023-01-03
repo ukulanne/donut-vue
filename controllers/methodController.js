@@ -1,6 +1,6 @@
 'use strict'
 
-/* Time-stamp: <2023-01-02 11:35:41 anne> */
+/* Time-stamp: <2023-01-02 21:41:44 anne> */
 
 const clc     = require ('cli-color')
 const fs      = require ('fs')
@@ -96,7 +96,7 @@ exports.makePayments = async (req, res, next) => {
     
     let jsonObj = parser.parse (data)
     //let rows = jsonObj.root.row
-    let rows = jsonObj.root.row.slice (0, 1300)
+    let rows = jsonObj.root.row.slice (0, 300)
 
     //console.log (rows.length)
    //console.log (rows [0])
@@ -129,7 +129,7 @@ exports.makePayments = async (req, res, next) => {
 
     //we cache merchants to speed things up
     
-    await Promise.all ([sleep (timer (plaidIds.length,  METHOD_API_CONST))])
+    await Promise.all ([sleep (METHOD_LIMIT_TIME * 3)])
 
     console.log (merchantsMap)
     
