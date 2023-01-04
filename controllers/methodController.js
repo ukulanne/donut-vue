@@ -1,6 +1,6 @@
 'use strict'
 
-/* Time-stamp: <2023-01-03 10:27:06 anne> */
+/* Time-stamp: <2023-01-04 11:14:55 panda> */
 
 const clc     = require ('cli-color')
 const fs      = require ('fs')

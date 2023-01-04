@@ -1,6 +1,6 @@
  'use strict'
 
-/* Time-stamp: <2023-01-02 21:06:42 anne> */
+/* Time-stamp: <2023-01-03 22:31:13 panda> */
 
 const bodyParser     = require ('body-parser')
 const chalk          = require  ('colors')
@@ -41,11 +41,12 @@ app.get('/panda', (req, res) => {
 
 process.on ('SIGINT', () => {
   console.log (`${chalk.bgRed ('[SIGINT]')}`)
-   process.exit () 
+   process.exit ()
 })
 
 process.on ('uncaughtException',  err => {
   console.log (`${chalk.bgRed ('[EXCEPTION]')}`)
+  console.log (err)
 })
 
 process.on('unhandledRejection', (reason, promise) => {
