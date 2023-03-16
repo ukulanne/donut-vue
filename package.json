@@ -50,7 +50,7 @@
 
     "node-schedule": "^2.1.1",
 
-    "sqlite3": "^5.1.5",
+    "sqlite3": "^5.1.6",
 
     "swagger-ui-express": "^4.6.2",
 
