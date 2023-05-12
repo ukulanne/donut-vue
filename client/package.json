@@ -16,12 +16,12 @@
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.43",
     "roboto-fontface": "*",
-    "vue": "^3.2.47",
-    "vuetify": "^3.2.3",
+    "vue": "^3.3.2",
+    "vuetify": "^3.2.4",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.1",
+    "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.3.5",
     "vite-plugin-vuetify": "^1.0.2"
   }
