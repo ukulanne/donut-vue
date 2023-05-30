@@ -17,12 +17,12 @@
     "moment-timezone": "^0.5.43",
     "roboto-fontface": "*",
     "vue": "^3.3.4",
-    "vuetify": "^3.3.0",
+    "vuetify": "^3.3.2",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.3.8",
+    "vite": "^4.3.9",
     "vite-plugin-vuetify": "^1.0.2"
   }
 }
