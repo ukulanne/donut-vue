@@ -9,20 +9,20 @@
   "dependencies": {
     "@mdi/font": "7.2.96",
     "ag-charts-community": "^7.3.0",
-    "ag-grid-community": "^29.3.4",
-    "ag-grid-vue3": "^29.3.4",
+    "ag-grid-community": "^29.3.5",
+    "ag-grid-vue3": "^29.3.5",
     "axios": "^1.4.0",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.43",
     "roboto-fontface": "*",
-    "vue": "^3.2.47",
-    "vuetify": "^3.2.3",
+    "vue": "^3.3.4",
+    "vuetify": "^3.3.2",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.1",
-    "vite": "^4.3.5",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.3.9",
     "vite-plugin-vuetify": "^1.0.2"
   }
 }
