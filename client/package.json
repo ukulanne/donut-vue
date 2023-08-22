@@ -8,20 +8,20 @@
   },
   "dependencies": {
     "@mdi/font": "7.2.96",
-    "ag-charts-community": "^8.0.6",
-    "ag-grid-community": "^30.0.6",
-    "ag-grid-vue3": "^30.0.6",
+    "ag-charts-community": "^8.1.0",
+    "ag-grid-community": "^30.1.0",
+    "ag-grid-vue3": "^30.1.0",
     "axios": "^1.4.0",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.43",
     "roboto-fontface": "*",
     "vue": "^3.3.4",
-    "vuetify": "^3.3.12",
+    "vuetify": "^3.3.14",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^4.3.3",
     "vite": "^4.4.9",
     "vite-plugin-vuetify": "^1.0.2"
   }
