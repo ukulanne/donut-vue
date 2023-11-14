@@ -22,7 +22,7 @@
 
   "dependencies": {
 
-    "axios": "^1.6.0",
+    "axios": "^1.6.1",
 
     "body-parser": "^1.20.2",
 
@@ -38,9 +38,9 @@
 
     "figlet": "^1.7.0",
 
-    "helmet": "^7.0.0",
+    "helmet": "^7.1.0",
 
-    "method-node": "^0.3.19",
+    "method-node": "^0.3.20",
 
     "method-override": "^3.0.0",
 
