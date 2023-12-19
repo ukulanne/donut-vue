@@ -8,21 +8,21 @@
   },
   "dependencies": {
     "@mdi/font": "7.3.67",
-    "ag-charts-community": "^8.2.1",
-    "ag-grid-community": "^30.2.1",
-    "ag-grid-vue3": "^30.2.1",
-    "axios": "^1.6.1",
+    "ag-charts-community": "^9.0.1",
+    "ag-grid-community": "^31.0.1",
+    "ag-grid-vue3": "^31.0.1",
+    "axios": "^1.6.2",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.43",
     "roboto-fontface": "*",
-    "vue": "^3.3.8",
-    "vuetify": "^3.4.0",
+    "vue": "^3.3.13",
+    "vuetify": "^3.4.7",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.4.1",
-    "vite": "^4.5.0",
-    "vite-plugin-vuetify": "^1.0.2"
+    "@vitejs/plugin-vue": "^4.5.2",
+    "vite": "^5.0.10",
+    "vite-plugin-vuetify": "^2.0.1"
   }
 }
