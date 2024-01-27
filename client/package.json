@@ -9,9 +9,9 @@
   "dependencies": {
     "@mdi/font": "7.4.47",
     "ag-charts-community": "^9.0.2",
-    "ag-grid-community": "^31.0.2",
-    "ag-grid-vue3": "^31.0.2",
-    "axios": "^1.6.5",
+    "ag-grid-community": "^31.0.3",
+    "ag-grid-vue3": "^31.0.3",
+    "axios": "^1.6.7",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.44",
