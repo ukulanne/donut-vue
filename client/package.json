@@ -17,7 +17,7 @@
     "moment-timezone": "^0.5.44",
     "roboto-fontface": "*",
     "vue": "^3.4.15",
-    "vuetify": "^3.5.1",
+    "vuetify": "^3.5.2",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
