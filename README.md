@@ -7,7 +7,7 @@ Donut-vue is a sample web app tha ilustrates how to use the [METHOD API](https:/
 
 Donut-vue uses the following:
 
-- [Node 18](https://nodejs.org/en/)
+- [Node 20](https://nodejs.org/en/)
 - [VueJS 3](https://vuejs.org/)
 - [Vuetify 3](https://next.vuetifyjs.com/en/)
 - [SQLite 3](https://www.sqlite.org/index.html)
