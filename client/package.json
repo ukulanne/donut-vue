@@ -16,7 +16,7 @@
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.45",
     "roboto-fontface": "*",
-    "vue": "^3.4.24",
+    "vue": "^3.4.25",
     "vuetify": "^3.5.17",
     "webfontloader": "^1.6.28"
   },
