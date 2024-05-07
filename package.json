@@ -50,6 +50,8 @@
 
     "node-schedule": "^2.1.1",
 
+    "npx": "^10.2.2",
+
     "sqlite3": "^5.1.7",
 
     "swagger-ui-express": "^5.0.0",
@@ -59,6 +61,8 @@
   },
 
   "devDependencies": {
+
+    "concurrently": "^8.2.2",
 
     "nodemon": "^3.1.0"
 
