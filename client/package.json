@@ -12,18 +12,18 @@
     "ag-charts-community": "^10.0.2",
     "ag-grid-community": "^32.0.2",
     "ag-grid-vue3": "^32.0.2",
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.45",
     "roboto-fontface": "*",
-    "vue": "^3.4.35",
+    "vue": "^3.4.36",
     "vuetify": "^3.6.14",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.1.1",
-    "vite": "^5.3.5",
-    "vite-plugin-vuetify": "^2.0.3"
+    "@vitejs/plugin-vue": "^5.1.2",
+    "vite": "^5.4.0",
+    "vite-plugin-vuetify": "^2.0.4"
   }
 }
