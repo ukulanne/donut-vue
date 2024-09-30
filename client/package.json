@@ -10,20 +10,20 @@
   "dependencies": {
     "@mdi/font": "7.4.47",
     "ag-charts-community": "^10.2.0",
-    "ag-grid-community": "^32.2.0",
-    "ag-grid-vue3": "^32.2.0",
+    "ag-grid-community": "^32.2.1",
+    "ag-grid-vue3": "^32.2.1",
     "axios": "^1.7.7",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.45",
     "roboto-fontface": "*",
-    "vue": "^3.5.7",
+    "vue": "^3.5.10",
     "vuetify": "^3.7.2",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
-    "vite": "^5.4.7",
+    "vite": "^5.4.8",
     "vite-plugin-vuetify": "^2.0.4"
   }
 }
