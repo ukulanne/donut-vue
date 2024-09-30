@@ -22,9 +22,9 @@
 
   "dependencies": {
 
-    "axios": "^1.6.8",
+    "axios": "^1.7.7",
 
-    "body-parser": "^1.20.2",
+    "body-parser": "^1.20.3",
 
     "cli-color": "^2.0.4",
 
@@ -32,15 +32,15 @@
 
     "compression": "^1.7.4",
 
-    "express": "^4.19.2",
+    "express": "^4.21.0",
 
-    "fast-xml-parser": "^4.3.6",
+    "fast-xml-parser": "^4.5.0",
 
     "figlet": "^1.7.0",
 
-    "helmet": "^7.1.0",
+    "helmet": "^8.0.0",
 
-    "method-node": "^0.3.36",
+    "method-node": "^1.1.2",
 
     "method-override": "^3.0.0",
 
@@ -54,17 +54,17 @@
 
     "sqlite3": "^5.1.7",
 
-    "swagger-ui-express": "^5.0.0",
+    "swagger-ui-express": "^5.0.1",
 
-    "uuid": "^9.0.1"
+    "uuid": "^10.0.0"
 
   },
 
   "devDependencies": {
 
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.0.1",
 
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.7"
 
   }
 
