@@ -22,7 +22,7 @@
 
   "dependencies": {
 
-    "axios": "^1.7.7",
+    "axios": "^1.7.9",
 
     "body-parser": "^1.20.3",
 
@@ -30,21 +30,21 @@
 
     "colors": "^1.4.0",
 
-    "compression": "^1.7.4",
+    "compression": "^1.7.5",
 
-    "express": "^4.21.0",
+    "express": "^4.21.2",
 
-    "fast-xml-parser": "^4.5.0",
+    "fast-xml-parser": "^4.5.1",
 
-    "figlet": "^1.7.0",
+    "figlet": "^1.8.0",
 
     "helmet": "^8.0.0",
 
-    "method-node": "^1.1.2",
+    "method-node": "^1.1.6",
 
     "method-override": "^3.0.0",
 
-    "moment-timezone": "^0.5.45",
+    "moment-timezone": "^0.5.46",
 
     "multer": "^1.4.5-lts.1",
 
@@ -56,15 +56,15 @@
 
     "swagger-ui-express": "^5.0.1",
 
-    "uuid": "^10.0.0"
+    "uuid": "^11.0.5"
 
   },
 
   "devDependencies": {
 
-    "concurrently": "^9.0.1",
+    "concurrently": "^9.1.2",
 
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.9"
 
   }
 
