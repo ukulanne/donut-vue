@@ -22,7 +22,7 @@
 
   "dependencies": {
 
-    "axios": "^1.7.9",
+    "axios": "^1.8.3",
 
     "body-parser": "^1.20.3",
 
@@ -30,21 +30,21 @@
 
     "colors": "^1.4.0",
 
-    "compression": "^1.7.5",
+    "compression": "^1.8.0",
 
-    "express": "^4.21.2",
+    "express": "^5.0.1",
 
-    "fast-xml-parser": "^4.5.1",
+    "fast-xml-parser": "^5.0.8",
 
     "figlet": "^1.8.0",
 
     "helmet": "^8.0.0",
 
-    "method-node": "^1.1.6",
+    "method-node": "^1.1.10",
 
     "method-override": "^3.0.0",
 
-    "moment-timezone": "^0.5.46",
+    "moment-timezone": "^0.5.47",
 
     "multer": "^1.4.5-lts.1",
 
@@ -56,7 +56,7 @@
 
     "swagger-ui-express": "^5.0.1",
 
-    "uuid": "^11.0.5"
+    "uuid": "^11.1.0"
 
   },
 
